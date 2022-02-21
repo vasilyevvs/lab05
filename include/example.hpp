@@ -2,7 +2,7 @@
 
 #ifndef INCLUDE_EXAMPLE_HPP_
 #define INCLUDE_EXAMPLE_HPP_
-
+#include "iostream"
 auto example() -> void;
 template <typename T>
 class Stack{
