@@ -35,26 +35,25 @@ class Stack{
 template <typename T>
 void Stack<T>::push(T&& value)
 {
-  Node *c = new Node();
-  c->value=std::move(value);
-  c->next=std::move(node);
-  node=c;
+  //Node *c = new Node();
+  /*c->*/node->field=std::move(value);
+  /*c->*/node->next=std::move(node);
+  //node=c;
 }
 template <typename T>
 void Stack<T>::push(const T& value)
 {
-  Node *c = new Node();
-  c->value=value;
-  c->next=node;
-  node=c;
+  //Node *c = new Node();
+  node->field=value;
+  node->next=node;
+  //node=c;
 }
 template <typename T>
 void Stack<T>::pop() {
-  Node* a;
+  //Node* a;
   if (node != NULL) {
-    a = node;
-    node = a->next;
-    return a->value;
+    node = node->next;
+    return node->value;
   } else {
     throw "Stack is empty!";
   }
@@ -67,9 +66,9 @@ template <typename T>
 template <typename ... Args>
 void Stack<T>::push_emplace(Args&&... value)
 {
-  Node *c = new Node();
-  c->value= T(std::forward<Args>(value)...);
-  c->next=node;
-  node=c;
+  //Node *c = new Node();
+  node->field= T(std::forward<Args>(value)...);
+  node->next=node;
+  //node=c;
 }
 #endif // INCLUDE_EXAMPLE_HPP_
